@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Models;
+using DataAccessLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Services
 {
     public interface ICustomerService
     {
-        List<Customer> GetCustomers();
+        List<CustomerDTO> GetCustomers();
 
     }
 }

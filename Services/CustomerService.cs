@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Models;
+﻿using DataAccessLayer.DTOs;
+using DataAccessLayer.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,15 @@ namespace Services
             _dbContext = dbContext;
         }
 
-        public List<Customer> GetCustomers()
+        public List<CustomerDTO> GetCustomers()
         {
-            return _dbContext.Customers.ToList();
+            return _dbContext.Customers.
+                Select(c => new CustomerDTO
+                {
+                    CustomerId = c.CustomerId,
+                    Givenname = c.Givenname
+                }).
+                ToList();
         }
     }
 }
