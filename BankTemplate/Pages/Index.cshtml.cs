@@ -20,10 +20,10 @@ namespace BankTemplate.Pages
         {
             Customers = _customerService.GetCustomers()
                 .Select(c => new CustomerViewModel
-            {
-                Id = c.CustomerId,
-                Name = c.Givenname,
-            }).ToList();
+                {
+                    Id = c.CustomerId,
+                    Name = c.Givenname,
+                }).ToList();
         }
     }
 }
