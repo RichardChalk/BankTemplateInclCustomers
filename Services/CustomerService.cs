@@ -1,5 +1,4 @@
-﻿using DataAccessLayer.DTOs;
-using DataAccessLayer.Models;
+﻿using DataAccessLayer.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -18,10 +17,11 @@ namespace Services
             _dbContext = dbContext;
         }
 
-        public List<CustomerDTO> GetCustomers()
+        // VARNING! Databasentitet! List<Customer> 
+        public List<Customer> GetCustomers()
         {
             return _dbContext.Customers.
-                Select(c => new CustomerDTO
+                Select(c => new Customer
                 {
                     CustomerId = c.CustomerId,
                     Givenname = c.Givenname
