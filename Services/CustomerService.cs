@@ -20,13 +20,7 @@ namespace Services
         // VARNING! Databasentitet! List<Customer> 
         public List<Customer> GetCustomers()
         {
-            return _dbContext.Customers.
-                Select(c => new Customer
-                {
-                    CustomerId = c.CustomerId,
-                    Givenname = c.Givenname
-                }).
-                ToList();
+            return _dbContext.Customers.ToList();
         }
     }
 }
